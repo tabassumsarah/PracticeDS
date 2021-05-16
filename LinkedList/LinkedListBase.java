@@ -7,19 +7,19 @@ class Node {
         this.next = next;
     }
 
-    private int getData() {
+    public int getData() {
         return this.data;
     }
 
-    private void setData(int data) {
+    public void setData(int data) {
         this.data = data;
     }
 
-    private Node getNext() {
+    public Node getNext() {
         return this.next;
     }
 
-    private void setNext(Node next) {
+    public void setNext(Node next) {
         this.next = next;
     }
 
@@ -49,4 +49,21 @@ public class LinkedListBase {
     private Node getTail() {
         return this.tail;
     }
+
+    /** Get the nth element of the list.
+    * Note: Here, the first node is 1. It’s not zero based like in an array */
+
+    public Node getNode(int n){
+        int counter = 1;
+        Node current = head;
+        while(current != null){
+            if(counter == n){
+                return current;
+            }
+            current = current.next;
+            counter ++;
+        }
+       throw new IndexOutOfBoundsException("No node");
+    }
+
 }
